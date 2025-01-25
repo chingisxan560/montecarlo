@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { navList } from "../data/Data";
 import SocialIcons from "./SocialIcons";
 
 export default function Header() {
+  const { t, i18n } = useTranslation("navigation");
   const [navbarCollapse, setNavbarCollapse] = useState(false);
-
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [forceRender, setForceRender] = useState(0); // ✅ добавляем состояние
+
+  useEffect(() => {
+    setForceRender((prev) => prev + 1);
+  }, [i18n.language]); // ✅ исправлено, теперь язык влияет на ререндер
 
   const handleMouseEnter = (itemId) => {
     setActiveDropdown(itemId);
@@ -16,9 +22,18 @@ export default function Header() {
     setActiveDropdown(null);
   };
 
+  const changeLanguage = (lng) => {
+    console.log("Changing language to:", lng);
+    i18n.changeLanguage(lng).then(() => {
+      console.log("Language changed:", i18n.language);
+    });
+  };
+
+  console.log("Перевод 'home':", t("home"));
+
   return (
     <>
-      <div className="container-fluid bg-dark px-0">
+      <div className="container-fluid bg-dark px-0" key={forceRender}>
         <div className="row gx-0">
           <div className="col-lg-3 bg-dark d-none d-lg-block">
             <Link
@@ -57,28 +72,54 @@ export default function Header() {
                           onMouseLeave={handleMouseLeave}
                         >
                           <Link className="nav-link dropdown-toggle">
-                            {item.text}
+                            {t(item.text)}
                           </Link>
                           <div
                             className={`dropdown-menu rounded-0 m-0 ${
                               activeDropdown === item.id ? "show" : ""
                             }`}
                           >
-                            {item.subItems.map((sub) => (
-                              <Link to={sub.path} className="dropdown-item">
-                                {sub.text}
-                              </Link>
-                            ))}
+                            {item.subItems &&
+                              item.subItems.map((sub, idx) => (
+                                <Link
+                                  key={idx}
+                                  to={sub.path}
+                                  className="dropdown-item"
+                                >
+                                  {t(sub.text)}
+                                </Link>
+                              ))}
                           </div>
                         </div>
                       ) : (
                         <Link to={item.path} className="nav-item nav-link">
-                          {item.text}
+                          {t(item.text)}
                         </Link>
                       )}
                     </div>
                   ))}
                 </div>
+                <div className="d-flex align-items-center">
+                  <button
+                    onClick={() => changeLanguage("en")}
+                    className="btn btn-sm btn-outline-light mx-1"
+                  >
+                    EN
+                  </button>
+                  <button
+                    onClick={() => changeLanguage("ru")}
+                    className="btn btn-sm btn-outline-light mx-1"
+                  >
+                    RU
+                  </button>
+                  <button
+                    onClick={() => changeLanguage("hy")}
+                    className="btn btn-sm btn-outline-light mx-1"
+                  >
+                    HY
+                  </button>
+                </div>
+
                 <SocialIcons />
               </div>
             </nav>

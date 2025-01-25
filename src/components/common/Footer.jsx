@@ -15,11 +15,16 @@ export default function Footer() {
             <div className="col-md-6 col-lg-4">
               <div className="bg-primary rounded p-4">
                 <Link to="/">
-                  <h1 className="text-white text-uppercase mb-3">Monte Carlo</h1>
+                  <h1 className="text-white text-uppercase mb-3">
+                    Monte Carlo
+                  </h1>
                 </Link>
                 <p className="text-white mb-0">
-                  Monte Carlo Luxury Hotel
-Experience unmatched elegance at the Monte Carlo Luxury Hotel, offering breathtaking views of the Mediterranean and steps away from the iconic Casino de Monte-Carlo. Enjoy exquisite dining, luxurious accommodations, and world-class service in a sophisticated, five-star setting.
+                  Monte Carlo Luxury Hotel Experience unmatched elegance at the
+                  Monte Carlo Luxury Hotel, offering breathtaking views of the
+                  Mediterranean and steps away from the iconic Casino de
+                  Monte-Carlo. Enjoy exquisite dining, luxurious accommodations,
+                  and world-class service in a sophisticated, five-star setting.
                 </p>
               </div>
             </div>
@@ -52,7 +57,7 @@ Experience unmatched elegance at the Monte Carlo Luxury Hotel, offering breathta
                         <button className="btn btn-link" key={itemIndex}>
                           {item.name}
                         </button>
-                      </Link> 
+                      </Link>
                     ))}
                   </div>
                 ))}

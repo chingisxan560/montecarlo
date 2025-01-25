@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import CommonHeading from "../common/CommonHeading";
-import { roomItems } from "../data/Data"; 
+import { roomItems } from "../data/Data";
 import { Link } from "react-router-dom";
 
 export default function Rooms({ filters }) {
+  const { t } = useTranslation("common"); // 👈 Добавляем namespace "common"
   const [filteredRooms, setFilteredRooms] = useState(roomItems);
 
   useEffect(() => {
     let filtered = roomItems;
 
     if (filters.category) {
-      filtered = filtered.filter(room => room.category === filters.category);
+      filtered = filtered.filter((room) => room.category === filters.category);
     }
 
     if (filters.capacity) {
-      filtered = filtered.filter(room => room.capacity >= parseInt(filters.capacity));
+      filtered = filtered.filter(
+        (room) => room.capacity >= parseInt(filters.capacity)
+      );
     }
 
-    setFilteredRooms(filtered);  
+    setFilteredRooms(filtered);
   }, [filters]);
 
   return (
@@ -25,13 +29,13 @@ export default function Rooms({ filters }) {
       <div className="container-xxl py-5">
         <div className="container">
           <CommonHeading
-            heading="Our Rooms"
-            title="Rooms"
-            subtitle="Explore Our"
+            heading={t("Our Rooms")}
+            title={t("Rooms")}
+            subtitle={t("Explore Our")}
           />
           <div className="row g-4">
             {filteredRooms.length === 0 ? (
-              <p>No rooms match your criteria</p>
+              <p>{t("No rooms match your criteria")}</p>
             ) : (
               filteredRooms.map((item, key) => (
                 <div
@@ -43,38 +47,42 @@ export default function Rooms({ filters }) {
                     <div className="position-relative">
                       <img className="img-fluid" src={item.img} alt="img" />
                       <small className="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">
-                        {item.price}
+                        {item.price.split("/")[0]} {t("perNight")}
                       </small>
                     </div>
                     <div className="p-4 mt-2">
                       <div className="d-flex justify-content-between mb-3">
-                        <h5 className="mb-0">{item.name}</h5>
+                        <h5 className="mb-0">{t(item.name)}</h5>
                         <div className="ps-2">{item.star}</div>
                       </div>
                       <div className="d-flex mb-3">
-                        {/* Используем item.facilities для отображения удобств */}
                         {item.facilities.map((facilityItem, index) => (
                           <small key={index} className="border-end me-3 pe-3">
                             {facilityItem.icon}
-                            {facilityItem.quantity || ""} {facilityItem.facility}
+                            {facilityItem.quantity || ""}{" "}
+                            {t(facilityItem.facility)}
                           </small>
                         ))}
                       </div>
-                      <p className="text-body mb-3">{item.description}</p>
+                      <p className="text-body mb-3">
+                        {t(`description${key + 1}`)}{" "}
+                      </p>
+
                       <div className="d-flex justify-content-between">
                         <Link
                           to="/roominfo"
                           state={{
                             name: item.name,
-                            price: item.price,
-                            info: item.info,
-                            description: item.description,
+                            key: key,
+                            price: t(item.price),
+                            info: t(`info${key + 1}`),
+                            description: t(`description${key + 1}`),
                             img: item.img,
-                            darkbtn: item.darkbtn
+                            darkbtn: item.darkbtn,
                           }}
                         >
                           <button className="btn btn-sm btn-primary rounded py-2 px-4">
-                            {item.yellowbtn}
+                            {t(item.yellowbtn)}
                           </button>
                         </Link>
                         <Link
@@ -82,14 +90,14 @@ export default function Rooms({ filters }) {
                           state={{
                             name: item.name,
                             price: item.price,
-                            info: item.info,
-                            description: item.description,
+                            info: `info${key + 1}`,
+                            description: `description${key + 1}`,
                             img: item.img,
-                            darkbtn: item.darkbtn
+                            darkbtn: item.darkbtn,
                           }}
                         >
                           <button className="btn btn-sm btn-dark rounded py-2 px-4">
-                            {item.darkbtn}
+                            {t(item.darkbtn)}
                           </button>
                         </Link>
                       </div>

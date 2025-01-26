@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { footerContact, footerItem, socialIcons } from "../data/Data";
 import Newsletter from "../home/Newsletter";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
+  const { t } = useTranslation("common");
   return (
     <>
       <Newsletter />
@@ -19,18 +21,12 @@ export default function Footer() {
                     Monte Carlo
                   </h1>
                 </Link>
-                <p className="text-white mb-0">
-                  Monte Carlo Luxury Hotel Experience unmatched elegance at the
-                  Monte Carlo Luxury Hotel, offering breathtaking views of the
-                  Mediterranean and steps away from the iconic Casino de
-                  Monte-Carlo. Enjoy exquisite dining, luxurious accommodations,
-                  and world-class service in a sophisticated, five-star setting.
-                </p>
+                <p className="text-white mb-0">{t("footerText")}</p>
               </div>
             </div>
             <div className="col-md-6 col-lg-3">
               <h6 className="section-title text-start text-primary text-uppercase mb-4">
-                Contact
+                {t(`Contact`)}
               </h6>
               {footerContact.map((val, index) => (
                 <p className="mb-2" key={index}>
@@ -50,12 +46,12 @@ export default function Footer() {
                 {footerItem.map((section, sectionIndex) => (
                   <div className="col-md-6" key={sectionIndex}>
                     <h6 className="section-title text-start text-primary text-uppercase mb-4">
-                      {section.header}
+                      {t(section.header)}
                     </h6>
                     {section.UnitItem.map((item, itemIndex) => (
                       <Link to={item.url}>
                         <button className="btn btn-link" key={itemIndex}>
-                          {item.name}
+                          {t(item.name)}
                         </button>
                       </Link>
                     ))}

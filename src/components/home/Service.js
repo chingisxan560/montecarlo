@@ -1,20 +1,22 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import CommonHeading from "../common/CommonHeading";
 import { services } from "../data/Data";
 import CustomModal from "../common/Modal";
 
-export default function   Services() {
+export default function Services() {
+  const { t } = useTranslation("common");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState(null); 
+  const [selectedService, setSelectedService] = useState(null);
 
   const handleOpenModal = (service) => {
-    setSelectedService(service); 
+    setSelectedService(service);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setSelectedService(null); 
+    setSelectedService(null);
   };
 
   return (
@@ -23,9 +25,9 @@ export default function   Services() {
         <div className="container">
           <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
             <CommonHeading
-              heading="Our Services"
-              title="Services"
-              subtitle="Explore Our"
+              heading={t("Our Services")}
+              title={t("Services")}
+              subtitle={t("Explore Our")}
             />
           </div>
           <div className="row g-4">
@@ -36,7 +38,7 @@ export default function   Services() {
                 data-wow-delay="0.1s"
               >
                 <button
-                  onClick={() => handleOpenModal(item)} 
+                  onClick={() => handleOpenModal(item)}
                   className="service-item rounded"
                   style={{
                     width: "300px",
@@ -49,17 +51,19 @@ export default function   Services() {
                       {item.icon}
                     </div>
                   </div>
-                  <h5 className="mb-3">{item.name}</h5>
-                  <p className="text-body mb-0">{item.description}</p>
+                  <h5 className="mb-3">{t(`nameService${index + 1}`)}</h5>
+                  <p className="text-body mb-0">
+                    {t(`descriptionService${index + 1}`)}
+                  </p>
                 </button>
               </div>
             ))}
           </div>
-          {selectedService && ( 
+          {selectedService && (
             <CustomModal
               isOpen={isModalOpen}
-              img={selectedService.img} 
-              text={selectedService.description} 
+              img={selectedService.img}
+              text={t(selectedService.description)}
               onClose={handleCloseModal}
             />
           )}

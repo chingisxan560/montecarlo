@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-// Импортируем функции для работы с Firebase
 import { ref, set } from "firebase/database";
-import { db } from "../firebase"; // Импортируем нашу инициализацию Firebase
+import { db } from "../firebase";
+import { useTranslation } from "react-i18next";
 
 export default function PurchasePage() {
+  const { t } = useTranslation("common");
   const location = useLocation();
-  const { name, price, description, img } = location.state || {};
+  const { name, price, key, img } = location.state || {};
+  console.log(location.state);
 
-  // Состояние для формы
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -16,7 +17,6 @@ export default function PurchasePage() {
     phone: "+",
   });
 
-  // Обработчик изменения данных формы
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -24,7 +24,7 @@ export default function PurchasePage() {
       let formattedValue = value.replace(/[^0-9]/g, "");
       setFormData({
         ...formData,
-        [name]: `+${formattedValue}`, // Форматируем телефон
+        [name]: `+${formattedValue}`,
       });
     } else {
       setFormData({
@@ -34,11 +34,9 @@ export default function PurchasePage() {
     }
   };
 
-  // Обработчик отправки формы
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Данные заказа
     const orderData = {
       firstName: formData.firstName,
       lastName: formData.lastName,
@@ -46,25 +44,22 @@ export default function PurchasePage() {
       phone: formData.phone,
       productName: name,
       productPrice: price,
-      productDescription: description,
-      productImage: img,
     };
 
-    // Сохраняем данные в Firebase
-    const newOrderRef = ref(db, "orders/" + Date.now()); // Используем текущую метку времени для уникального ключа
+    const newOrderRef = ref(db, "orders/" + Date.now());
     set(newOrderRef, orderData)
       .then(() => {
-        alert("Your order has been placed! Thanks for your purchase.");
+        alert(t("Order success message"));
       })
       .catch((error) => {
         console.error("Error adding order: ", error);
-        alert("There was an error placing your order.");
+        alert(t("Order error message"));
       });
   };
 
   return (
     <div className="container py-5">
-      <h2>Making a purchase</h2>
+      <h2>{t("Making a purchase")}</h2>
       <div className="row">
         <div className="col-md-6">
           <img
@@ -77,13 +72,15 @@ export default function PurchasePage() {
         </div>
         <div className="col-md-6">
           <h3>{name}</h3>
-          <h4 className="text-primary">{price}</h4>
-          <p>{description}</p>
+          <h4 className="text-primary">
+            {price.split("/")[0]} {t("perNight")}
+          </h4>
+          <p>{t(`description${key + 1}`)}</p>
 
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="firstName" className="form-label">
-                Name
+                {t("Name")}
               </label>
               <input
                 type="text"
@@ -97,7 +94,7 @@ export default function PurchasePage() {
             </div>
             <div className="mb-3">
               <label htmlFor="lastName" className="form-label">
-                Surname
+                {t("Surname")}
               </label>
               <input
                 type="text"
@@ -111,7 +108,7 @@ export default function PurchasePage() {
             </div>
             <div className="mb-3">
               <label htmlFor="email" className="form-label">
-                Email
+                {t("Email")}
               </label>
               <input
                 type="email"
@@ -125,7 +122,7 @@ export default function PurchasePage() {
             </div>
             <div className="mb-3">
               <label htmlFor="phone" className="form-label">
-                Phone
+                {t("Phone")}
               </label>
               <input
                 type="tel"
@@ -139,10 +136,17 @@ export default function PurchasePage() {
                 maxLength="16"
               />
             </div>
-            <button type="submit" className="btn btn-lg" style={{ color:"white", backgroundColor: '#FEA116', borderColor: '#FEA116' }}>
-  Confirm order
-</button>
-
+            <button
+              type="submit"
+              className="btn btn-lg"
+              style={{
+                color: "white",
+                backgroundColor: "#FEA116",
+                borderColor: "#FEA116",
+              }}
+            >
+              {t("Confirm order")}
+            </button>
           </form>
         </div>
       </div>

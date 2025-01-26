@@ -29,10 +29,10 @@ export default function Roominfo() {
               {" "}
               {price.split("/")[0]} {t("perNight")}
             </h4>
-            <h3>{t(`description${key}`)}</h3>
+            <h3>{t(`description${key + 1}`)}</h3>
             <hr />
             <h6 style={{ paddingTop: "20px", paddingBottom: "20px" }}>
-              {t(`info${key}`)}
+              {t(`info${key + 1}`)}
             </h6>
             <Link
               to="/purchase"
@@ -42,6 +42,7 @@ export default function Roominfo() {
                 info: info,
                 description: description,
                 img: img,
+                key: key,
                 // darkbtn: darkbtn,
               }}
             >

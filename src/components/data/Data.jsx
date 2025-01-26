@@ -94,46 +94,46 @@ export const about = [
 
 export const services = [
   {
-    icon: <i class="fa fa-hotel fa-2x text-primary"></i>,
-    name: "Rooms & Apartment",
+    icon: <i className="fa fa-hotel fa-2x text-primary"></i>,
     img: "/assets/img/room.png",
-    description:
-      "Enjoy luxurious rooms and apartments with top-notch facilities. Experience comfort and elegance in every detail.",
+    name: "nameService1",
+    description: "descriptionService1",
+    info: "infoService1",
   },
   {
-    icon: <i class="fa fa-utensils fa-2x text-primary"></i>,
-    name: "Food & Restaurant",
+    icon: <i className="fa fa-utensils fa-2x text-primary"></i>,
     img: "/assets/img/restaurant.png",
-    description:
-      "Savor delicious cuisines prepared by world-class chefs. Our restaurants offer a variety of dishes to delight your taste buds.",
+    name: "nameService2",
+    description: "descriptionService2",
+    info: "infoService2",
   },
   {
-    icon: <i class="fa fa-spa fa-2x text-primary"></i>,
-    name: "Spa & Fitness",
+    icon: <i className="fa fa-spa fa-2x text-primary"></i>,
     img: "/assets/img/spa.png",
-    description:
-      "Relax and rejuvenate with our exclusive spa treatments and fitness programs designed to revitalize your body and mind.",
+    name: "nameService3",
+    description: "descriptionService3",
+    info: "infoService3",
   },
   {
-    icon: <i class="fa fa-swimmer fa-2x text-primary"></i>,
-    name: "Sports & Gaming",
+    icon: <i className="fa fa-swimmer fa-2x text-primary"></i>,
     img: "/assets/img/pool.png",
-    description:
-      "Engage in thrilling sports and gaming activities. Enjoy state-of-the-art facilities for an unforgettable experience.",
+    name: "nameService4",
+    description: "descriptionService4",
+    info: "infoService4",
   },
   {
-    icon: <i class="fa fa-glass-cheers fa-2x text-primary"></i>,
-    name: "Event & Party",
+    icon: <i className="fa fa-glass-cheers fa-2x text-primary"></i>,
     img: "/assets/img/casino.png",
-    description:
-      "Celebrate life's special moments with our event and party services. We make every occasion extraordinary.",
+    name: "nameService5",
+    description: "descriptionService5",
+    info: "infoService5",
   },
   {
-    icon: <i class="fa fa-dumbbell fa-2x text-primary"></i>,
-    name: "GYM & Yoga",
+    icon: <i className="fa fa-dumbbell fa-2x text-primary"></i>,
     img: "/assets/img/sports.png",
-    description:
-      "Stay fit and healthy with our modern gym equipment and professional yoga classes tailored for all levels.",
+    name: "nameService6",
+    description: "descriptionService6",
+    info: "infoService6",
   },
 ];
 
@@ -281,7 +281,7 @@ export const roomItems = [
         quantity: 1,
         facility: "Bath",
       },
-      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "WiFi" },
+      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "Wifi" },
     ],
   },
   {
@@ -313,7 +313,7 @@ export const roomItems = [
         quantity: 2,
         facility: "Bath",
       },
-      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "WiFi" },
+      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "Wifi" },
     ],
   },
   {
@@ -345,7 +345,7 @@ export const roomItems = [
         quantity: 2,
         facility: "Bath",
       },
-      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "WiFi" },
+      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "Wifi" },
     ],
   },
   {
@@ -378,7 +378,7 @@ export const roomItems = [
         quantity: 2,
         facility: "Bath",
       },
-      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "WiFi" },
+      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "Wifi" },
     ],
   },
   {
@@ -410,7 +410,7 @@ export const roomItems = [
         quantity: 1,
         facility: "Bath",
       },
-      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "WiFi" },
+      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "Wifi" },
     ],
   },
   {
@@ -442,7 +442,7 @@ export const roomItems = [
         quantity: 3,
         facility: "Bath",
       },
-      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "WiFi" },
+      { icon: <i class="fa fa-wifi text-primary me-2"></i>, facility: "Wifi" },
     ],
   },
   {
@@ -462,17 +462,17 @@ export const roomItems = [
       "Presidential Suite with a jacuzzi. A luxurious, spacious room.",
     info7: "A place of craftsmanship where the jacuzzi is everything.",
     yellowbtn: "View Detail",
-    darkbtn: "book now",
+    darkbtn: "Book Now",
     facilities: [
       {
         icon: <i class="fa fa-bed text-primary me-2"></i>,
         quantity: 4,
-        facility: "bed",
+        facility: "Bed",
       },
       {
         icon: <i class="fa fa-bath text-primary me-2"></i>,
         quantity: 3,
-        facility: "bath",
+        facility: "Bath",
       },
       {
         icon: <i class="fa fa-wifi text-primary me-2"></i>,
@@ -498,17 +498,17 @@ export const roomItems = [
     info8:
       "For preferred guests, this suite will be offered with a luxury set.",
     yellowbtn: "View Detail",
-    darkbtn: "book now",
+    darkbtn: "Book Now",
     facilities: [
       {
         icon: <i class="fa fa-bed text-primary me-2"></i>,
         quantity: 3,
-        facility: "bed",
+        facility: "Bed",
       },
       {
         icon: <i class="fa fa-bath text-primary me-2"></i>,
         quantity: 2,
-        facility: "bath",
+        facility: "Bath",
       },
       {
         icon: <i class="fa fa-wifi text-primary me-2"></i>,
@@ -532,17 +532,17 @@ export const roomItems = [
     description9: "A unique Executive Deluxe room with all premium amenities.",
     info9: "Every detail is crafted with impeccable comfort.",
     yellowbtn: "View Detail",
-    darkbtn: "book now",
+    darkbtn: "Book Now",
     facilities: [
       {
         icon: <i class="fa fa-bed text-primary me-2"></i>,
         quantity: 4,
-        facility: "bed",
+        facility: "Bed",
       },
       {
         icon: <i class="fa fa-bath text-primary me-2"></i>,
         quantity: 2,
-        facility: "bath",
+        facility: "Bath",
       },
       {
         icon: <i class="fa fa-wifi text-primary me-2"></i>,
@@ -568,17 +568,17 @@ export const roomItems = [
     info10:
       "The Classic Room combines comfort and elegant simplicity. This room is designed for guests looking for a cozy and peaceful environment.",
     yellowbtn: "View Detail",
-    darkbtn: "book now",
+    darkbtn: "Book Now",
     facilities: [
       {
         icon: <i class="fa fa-bed text-primary me-2"></i>,
         quantity: 2,
-        facility: "bed",
+        facility: "Bed",
       },
       {
         icon: <i class="fa fa-bath text-primary me-2"></i>,
         quantity: 1,
-        facility: "bath",
+        facility: "Bath",
       },
       {
         icon: <i class="fa fa-wifi text-primary me-2"></i>,
@@ -605,17 +605,17 @@ export const roomItems = [
       "The Imperial Suite features a luxurious layout, offering the best relaxation with a dedicated floor and full service.",
 
     yellowbtn: "View Detail",
-    darkbtn: "book now",
+    darkbtn: "Book Now",
     facilities: [
       {
         icon: <i class="fa fa-bed text-primary me-2"></i>,
         quantity: 4,
-        facility: "bed",
+        facility: "Bed",
       },
       {
         icon: <i class="fa fa-bath text-primary me-2"></i>,
         quantity: 3,
-        facility: "bath",
+        facility: "Bath",
       },
       {
         icon: <i class="fa fa-wifi text-primary me-2"></i>,
@@ -641,17 +641,17 @@ export const roomItems = [
     info12:
       "The Imperial Suite features a luxurious layout, offering the best relaxation with a dedicated floor and full service.",
     yellowbtn: "View Detail",
-    darkbtn: "book now",
+    darkbtn: "Book Now",
     facilities: [
       {
         icon: <i class="fa fa-bed text-primary me-2"></i>,
         quantity: 4,
-        facility: "bed",
+        facility: "Bed",
       },
       {
         icon: <i class="fa fa-bath text-primary me-2"></i>,
         quantity: 3,
-        facility: "bath",
+        facility: "Bath",
       },
       {
         icon: <i class="fa fa-wifi text-primary me-2"></i>,

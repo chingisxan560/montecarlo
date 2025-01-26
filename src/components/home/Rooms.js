@@ -88,6 +88,7 @@ export default function Rooms({ filters }) {
                         <Link
                           to="/purchase"
                           state={{
+                            key: key,
                             name: item.name,
                             price: item.price,
                             info: `info${key + 1}`,

@@ -1,71 +1,94 @@
-# Getting Started with Create React App
+# Monte Carlo 🚀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Տեխնիկական կանոնակարգ 🛠️
 
-## Available Scripts
+### Նախագծի նկարագրություն 📌
 
-In the project directory, you can run:
+1. \*_ 🏨 Ծրագրի անվանումը: _\* MONTE CARLO
+2. \*_ 📅 Նպատակը ՝ _\* նախագիծը նախատեսված է սենյակների առցանց ամրագրման համար:
+3. \*_ ✅ Խնդիրը, որը լուծում է նախագիծը._\* հաճախորդը կարող է սենյակ ամրագրել առանց Հյուրանոց այցելելու:
+4. \*_ 👨‍👩‍👦 Թիրախային լսարան ՝ _\* նախագիծը նախատեսված է չափահաս օգտատերերի համար ։
 
-### `npm start`
+### Ֆունկցիոնալ:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🔍 դիտեք համարների ցուցակը
+- 🛏️ սենյակների ընտրություն և ամրագրում
+- 📞 աշխատակիցների կապը հաճախորդների հետ
+- ️️🛠️ Թվերի ավելացում, խմբագրում և ջնջում (կազմակերպիչների համար)
+- 🛒 Առցանց Պատվերի Ձևակերպում
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Օգտագործված տեխնոլոգիաներ 💻
 
-### `npm test`
+- \*_ 🎨 կայքի ձևավորում. _\* նախագծված է FIGMA-ում
+- \*_ ⚛️ frontend: _\* գրված է ReactJS-ում
+- \*_️️ 🖼️ Պատկերների ստեղծում. _ \* կատարվել է RECRAFT-ի միջոցով
+- \*_ ✍️ տեքստերի ստեղծում. _ \* մասամբ գեներացվել է Չատգպտ-ի միջոցով
+- \*_ 🌍 թարգմանություն: _ \* կատարվել է react118i plugin-ի միջոցով
+- \*_ 🖥️ backend: _ \* մշակված է ՖՊ-ում
+- \*_ 💾 Տվյալների Բազա: _ \* Firebase
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Տվյալների բազայի Նկարագրություն 🗄️
 
-### `npm run build`
+👤 users (id, email, password, role)
+🏠 room_items (id, bed, bath, title, description, image, quantity, price)
+📧 newsletter (email)
+🛒 orders (email, firstName, lastName, phone, productDescription, productImage, productName, productPrice)
+📞 contact (email, firstName, lastName, message, phone, subject)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Օգտագործողի միջերես ️ ️
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Գլխավոր էջ 🏠:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 🏷️ Header
+- 🎞️ Slider
+- 🔍Фильтр ֆիլտր
+- 📋 Համարների ցուցակ
+- ✉️ Newsletter
+- 🔻 Footer
 
-### `npm run eject`
+#### սենյակների էջ 🎭:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 🏷️ Header
+- 📝համարների Նկարագրություն
+- ℹ️ տեղեկատվություն
+- 🛒ամրագրման կոճակ
+- 🔻 Footer
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Գնման էջ 🛍️:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 🏷️ Header
+- 📝համարների Նկարագրություն
+- 📝Անձնական տվյալներ
+- 🛒ամրագրման կոճակ
+- 🔻 Footer
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Տեխնիկական պահանջներ ️ ️
 
-## Learn More
+#### Սերվերի պահանջներ 🌐:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- ️️🛠️ PHP 7.4 կամ ավելի բարձր
+- 🛠️ Node.js v22. 13 կամ ավելի բարձր
+- ️️🛠️ Apache կամ Nginx վեբ սերվեր
+- 🛠️ ReactJS
+- 🛠️ Firebase
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Անվտանգության պահանջներ 🔒:
 
-### Code Splitting
+- 🔐 տվյալների կոդավորումը
+- ️️🛡️ Պաշտպանություն խոցելիություններից
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### Կատարման պահանջներ ⚡:
 
-### Analyzing the Bundle Size
+- ⚡ Արագ արձագանքման ժամանակ
+- 💪 Բարձր բեռի դիմադրություն
+- 🚀Բարձր արագությամբ գործողություն
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Լրացուցիչ տեղեկություններ 📢
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# montecarlo
+- ✅ Ծրագրի կոդը մաքուր է, փաստաթղթավորված և հեշտ ընթերցվող:
+- 📖 Փաստաթղթերը պետք է թարմացվեն, քանի որ նախագիծը զարգանում է:
+- ⏳**Իրականացման ժամկետները:**
+  - 🎨 դիզայն: 2 շաբաթ
+  - 💻 կոդի մշակում ՝ 2 շաբաթ
+  - 📝 տեքստերի և պատկերների ստեղծում.
+  - 📄 Տեխնիկական պահանջների փաստաթղթավորում ՝ 2 օր
